@@ -1,4 +1,4 @@
-![Netlify Next.js Blog Template designed by Bejamas](https://user-images.githubusercontent.com/43764894/223762618-62742b4e-9424-44a7-8e85-9f7e4e19db54.png)
+<!-- ![Netlify Next.js Blog Template designed by Bejamas](https://user-images.githubusercontent.com/43764894/223762618-62742b4e-9424-44a7-8e85-9f7e4e19db54.png)
 
 
 [![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/nextjs-blog-theme)
@@ -134,4 +134,10 @@ And lastly if you’d like to remove Cypress entirely, delete the entire `cypres
 
 ```bash
 npm uninstall cypress
-```
+``` -->
+
+My Portfolio website! [work in progress]
+
+Built using a Netlify Next.js starting template.
+
+React, Tailwind CSS
