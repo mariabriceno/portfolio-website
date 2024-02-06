@@ -1,28 +1,29 @@
-import Link from 'next/link';
-import { getPosts } from '../utils/mdx-utils';
-
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import Layout, { GradientBackground } from '../components/Layout';
+import Link from "next/link";
+import { getPosts, getJobs } from "../utils/utils";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Layout, { GradientBackground } from "../components/Layout";
 // import ArrowIcon from '../components/ArrowIcon';
-import { getGlobalData } from '../utils/global-data';
-import SEO from '../components/SEO';
-import { SplitLayout } from '../components/SplitLayout';
+import { getGlobalData } from "../utils/global-data";
+import SEO from "../components/SEO";
+import { SplitLayout } from "../components/SplitLayout";
+import Experience from "../components/Experience/index";
 
-export default function Index({ posts, globalData }) {
+export default function Index({ posts, jobs, globalData }) {
   return (
     <Layout>
       <SEO title={globalData.name} description={globalData.blogTitle} />
-     
-     <SplitLayout side={'left'}>
+
+      <SplitLayout side={"left"}>
         <Header name={globalData.name} />
-        <Footer copyrightText={globalData.footerText} />
-     </SplitLayout>
-     <SplitLayout side={'right'}>
-        <main>
-          <h1>hi</h1>
+      </SplitLayout>
+
+      <SplitLayout side={"right"}>
+        <main className="container my-10 overscroll-contain">
+          <Experience {...{ jobs }} />
         </main>
-     </SplitLayout>
+        <Footer copyrightText={globalData.footerText} />
+      </SplitLayout>
       {/* <GradientBackground
         variant="large"
         className="fixed top-20 opacity-40 dark:opacity-60"
@@ -38,6 +39,7 @@ export default function Index({ posts, globalData }) {
 export function getStaticProps() {
   const posts = getPosts();
   const globalData = getGlobalData();
+  const jobs = getJobs();
 
-  return { props: { posts, globalData } };
+  return { props: { posts, jobs, globalData } };
 }
