@@ -1,33 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { getHTMLFromMarkdown } from "../../utils/api";
-import { MDXRemote } from "next-mdx-remote";
 import Head from "next/head";
+import { MDXRemote } from "next-mdx-remote";
+import useMDXSource from "../../utils/hooks/useMDXSource";
+import Project from "./Project";
 
 export default function ListItem({ item }) {
-  const [data, setData] = useState("");
-
+  const { html } = useMDXSource(item.description);
   const components = { Head };
 
-  useEffect(() => {
-    async function getContent() {
-      const content = await getHTMLFromMarkdown(item);
-      setData(content);
-    }
-
-    if (!data) {
-      getContent();
-    }
-  }, []);
+  const portItems = item.portfolioItems;
 
   return (
     <li className="py-5">
       <header className="flex flex-row justify-between mb-4">
-        <h3>{item.data.title}</h3>
+        <h3 className="text-xl">{item.head.title}</h3>
         <p>
-          {item.data.start} {item.data.end ? `- ${item.data.end}` : ""}
+          {item.head.start} {item.head.end ? `- ${item.head.end}` : ""}
         </p>
       </header>
-      {data && <MDXRemote {...data} components={components} />}
+      <main className="text-sm">
+        {html && <MDXRemote {...html} components={components} />}
+      </main>
+
+      {portItems.length !== 0 && (
+        <footer className="mt-4">
+          <ul>
+            {portItems.map((project) => {
+              return <Project {...project} />;
+            })}
+          </ul>
+        </footer>
+      )}
     </li>
   );
 }

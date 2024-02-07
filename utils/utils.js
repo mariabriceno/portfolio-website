@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs, { readdirSync } from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
@@ -7,16 +7,11 @@ import remarkGfm from "remark-gfm";
 
 // POSTS_PATH is useful when you want to get the path to a specific file
 export const POSTS_PATH = path.join(process.cwd(), "posts");
-export const JOBS_PATH = path.join(process.cwd(), "jobs");
 
 // postFilePaths is the list of all mdx files inside the POSTS_PATH directory
 export const postFilePaths = fs
   .readdirSync(POSTS_PATH)
   // Only include md(x) files
-  .filter((path) => /\.mdx?$/.test(path));
-
-export const jobFilePath = fs
-  .readdirSync(JOBS_PATH)
   .filter((path) => /\.mdx?$/.test(path));
 
 export const sortPostsByDate = (posts) => {
@@ -44,23 +39,65 @@ export const getPosts = () => {
   return posts;
 };
 
-export const getJobs = () => {
-  let jobs = jobFilePath.map((filePath) => {
-    const source = fs.readFileSync(path.join(JOBS_PATH, filePath));
-    const { content, data } = matter(source);
+export const getPortfolioItems = () => {
+  const PORT_PATH = path.join(process.cwd(), "portfolio");
+  const jobDirectories = fs
+    .readdirSync(PORT_PATH)
+    .filter((path) => !path.includes(".mdx"));
+
+  const jobPaths = jobDirectories.map((directory) => {
+    // ../../../portfolio/${job directory}
+    return `${PORT_PATH}/${directory}`;
+  });
+
+  const jobData = jobPaths.map((directoryPath) => {
+    const job = fs.readFileSync(path.join(directoryPath, "index.mdx"));
+    const { content, data } = matter(job);
+
+    let portfolioItems = [];
+
+    const getPortfolioItems = fs
+      .readdirSync(directoryPath)
+      .filter((path) => /\.mdx?$/.test(path) && path !== "index.mdx");
+
+    // checking if job directory has any projects to link to
+    if (Array.isArray(getPortfolioItems) && getPortfolioItems.length) {
+      portfolioItems = getPortfolioItems.map((fileName) => {
+        const projectContent = fs.readFileSync(
+          path.join(directoryPath, fileName)
+        );
+
+        const { content, data } = matter(projectContent);
+
+        return {
+          projectData: data,
+          projectContent: content,
+        };
+      });
+    }
 
     return {
-      content,
-      data,
-      filePath,
+      head: data,
+      description: content,
+      portfolioItems,
     };
   });
 
-  return jobs;
-};
+  // jobData
+  //
+  // [{
+  //   head: {
+  //      title: 'Web Developer, Heap',
+  //      start: 'June 2022'
+  //   },
+  //   description: 'example markup.....',
+  //   portfolioItems: [{
+  //         projectData: {title: ''},
+  //         projectContent: '....example markup here...'
+  //    }]
+  // }]
 
-export const getJobBySlug = async (slug) => {
-  const jobFilePath = path.join(JOBS_PATH, `${slug}`);
+  return jobData;
 };
 
 export const getPostBySlug = async (slug) => {

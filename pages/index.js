@@ -1,29 +1,48 @@
 import Link from "next/link";
-import { getPosts, getJobs } from "../utils/utils";
+import React, { useState } from "react";
+import { getPosts, getPortfolioItems } from "../utils/utils";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Layout, { GradientBackground } from "../components/Layout";
-// import ArrowIcon from '../components/ArrowIcon';
 import { getGlobalData } from "../utils/global-data";
 import SEO from "../components/SEO";
 import { SplitLayout } from "../components/SplitLayout";
 import Experience from "../components/Experience/index";
 
-export default function Index({ posts, jobs, globalData }) {
+export default function Index({ portfolioItems, globalData }) {
+  const [open, setOpen] = useState(true);
+
+  const handleToggle = () => {
+    setOpen((prev) => !prev);
+  };
+
   return (
     <Layout>
       <SEO title={globalData.name} description={globalData.blogTitle} />
 
-      <SplitLayout side={"left"}>
+      <SplitLayout
+        side={"left"}
+        classlist={
+          "col-start-1 col-end-5 bg-black/30 row-span-12 flex flex-col justify-center"
+        }
+        open={open}
+      >
         <Header name={globalData.name} />
       </SplitLayout>
-
-      <SplitLayout side={"right"}>
+      <button className="absolute" onClick={handleToggle}>
+        click
+      </button>
+      <SplitLayout
+        side={"right"}
+        classlist={"col-start-5 col-end-13"}
+        open={open}
+      >
         <main className="container my-10 overscroll-contain">
-          <Experience {...{ jobs }} />
+          <Experience jobs={portfolioItems} />
         </main>
         <Footer copyrightText={globalData.footerText} />
       </SplitLayout>
+
       {/* <GradientBackground
         variant="large"
         className="fixed top-20 opacity-40 dark:opacity-60"
@@ -39,7 +58,7 @@ export default function Index({ posts, jobs, globalData }) {
 export function getStaticProps() {
   const posts = getPosts();
   const globalData = getGlobalData();
-  const jobs = getJobs();
+  const portfolioItems = getPortfolioItems();
 
-  return { props: { posts, jobs, globalData } };
+  return { props: { portfolioItems, globalData } };
 }
