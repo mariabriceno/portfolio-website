@@ -9,6 +9,8 @@ import SEO from "../components/SEO";
 import { SplitLayout } from "../components/SplitLayout";
 import Experience from "../components/Experience/index";
 import About from "../components/About";
+import Projects from "../components/Projects/Projects";
+import { projects } from "../components/Projects/data";
 
 export default function Index({ portfolioItems, globalData }) {
   const [open, setOpen] = useState(true);
@@ -39,6 +41,7 @@ export default function Index({ portfolioItems, globalData }) {
         <main className="container">
           <About />
           <Experience jobs={portfolioItems} />
+          <Projects projects={projects} />
         </main>
         <Footer copyrightText={globalData.footerText} />
       </SplitLayout>
