@@ -8,6 +8,7 @@ import { getGlobalData } from "../utils/global-data";
 import SEO from "../components/SEO";
 import { SplitLayout } from "../components/SplitLayout";
 import Experience from "../components/Experience/index";
+import About from "../components/About";
 
 export default function Index({ portfolioItems, globalData }) {
   const [open, setOpen] = useState(true);
@@ -22,22 +23,21 @@ export default function Index({ portfolioItems, globalData }) {
 
       <SplitLayout
         side={"left"}
-        classlist={
-          "col-start-1 col-end-5 bg-black/30 row-span-12 flex flex-col justify-center"
-        }
+        classlist={"col-start-1 col-end-5 row-span-12"}
         open={open}
       >
         <Header name={globalData.name} />
       </SplitLayout>
-      <button className="absolute" onClick={handleToggle}>
+      {/* <button className="absolute" onClick={handleToggle}>
         click
-      </button>
+      </button> */}
       <SplitLayout
         side={"right"}
-        classlist={"col-start-5 col-end-13"}
+        classlist={"col-start-5 col-end-13 row-span-12 overflow-auto"}
         open={open}
       >
-        <main className="container my-10 overscroll-contain">
+        <main className="container">
+          <About />
           <Experience jobs={portfolioItems} />
         </main>
         <Footer copyrightText={globalData.footerText} />

@@ -72,6 +72,7 @@ export const getPortfolioItems = () => {
         return {
           projectData: data,
           projectContent: content,
+          projectFilePath: fileName,
         };
       });
     }

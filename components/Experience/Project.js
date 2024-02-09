@@ -1,3 +1,9 @@
 export default function Project({ project }) {
-  return <li>hello</li>;
+  const title = project.projectData.title;
+
+  return (
+    <li>
+      <button>{title}</button>
+    </li>
+  );
 }

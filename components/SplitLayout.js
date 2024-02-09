@@ -12,15 +12,14 @@ export const SplitLayout = ({ side, classlist, children, open }) => {
   const [classes, setClasses] = useState(classlist);
 
   const getHeaderClasses = () => {
-    const staticClasses =
-      "col-start-1 bg-black/30 row-span-12 flex flex-col justify-center";
+    const staticClasses = "col-start-1 row-span-12";
 
     const newClasses = `${staticClasses} ${open ? "col-end-5" : "col-end-3"}`;
     setClasses(newClasses);
   };
 
   const getBodyClasses = () => {
-    const staticClasses = "col-end-13";
+    const staticClasses = "col-end-13 row-span-12 overflow-auto";
 
     const newClasses = `${staticClasses} ${
       open ? "col-start-5" : "col-start-3"
