@@ -2,7 +2,7 @@ import ListItem from "./ListItem";
 
 export default function Experience({ jobs }) {
   return (
-    <section id="experience">
+    <section className="mb-24" id="experience">
       <h2 className="text-3xl">Experience</h2>
       <ul>
         {jobs &&

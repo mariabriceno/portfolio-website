@@ -1,6 +1,3 @@
-// left: col-start-1 col-end-5 bg-black row-span-12
-// right: col-start-5 col-end-13 row-span-11
-
 import React, { useState, useEffect } from "react";
 
 export const sideMap = {

@@ -19,7 +19,7 @@ export default function Header({ name }) {
             <a href="#experience">Experience</a>
           </li>
           <li className="py-2">
-            <a href="">Portfolio</a>
+            <a href="#projects">Projects</a>
           </li>
         </ul>
       </nav>
