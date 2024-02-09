@@ -3,6 +3,8 @@ import rehypePrism from "@mapbox/rehype-prism";
 import remarkGfm from "remark-gfm";
 import matter from "gray-matter";
 
+export const devEnv = process.env.NODE_ENV === "development";
+
 export const getHTMLFromMarkdown = async (item) => {
   const { content, data } = matter(item);
   const mdxSource = await serialize(content, {
@@ -10,7 +12,7 @@ export const getHTMLFromMarkdown = async (item) => {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [rehypePrism],
-      development: true,
+      development: { devEnv },
     },
     scope: data,
   });
