@@ -12,7 +12,7 @@ export const getHTMLFromMarkdown = async (item) => {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [rehypePrism],
-      development: { devEnv },
+      development: devEnv,
     },
     scope: data,
   });
