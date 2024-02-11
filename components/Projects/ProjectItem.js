@@ -1,15 +1,15 @@
 export default function ProjectItem({ item }) {
   return (
-    <li className="flex justify-between py-4">
-      <p>{item.title}</p>
+    <li className="py-4">
+      <a href={item.link} className="flex justify-between content-center">
+        <p className="self-center text-white">{item.title}</p>
 
-      <ul className="flex flex-wrap">
-        {item.tech.map((i) => {
-          return <li className="skill">{i}</li>;
-        })}
-      </ul>
-
-      <a href={item.link}>Check it out</a>
+        <ul className="flex flex-wrap">
+          {item.tech.map((i) => {
+            return <li className="skill mr-2">{i}</li>;
+          })}
+        </ul>
+      </a>
     </li>
   );
 }

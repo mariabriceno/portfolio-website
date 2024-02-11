@@ -19,7 +19,11 @@ export default function About() {
       </p>
       <p className="mb-4">
         In my free time, I love watching movies and logging them on Letterboxd
-        <a href=""> (follow me!)</a>, running, and traveling.
+        <a href="https://letterboxd.com/bricenope/" target="_blank">
+          {" "}
+          (follow me!)
+        </a>
+        , running, and traveling.
       </p>
     </section>
   );

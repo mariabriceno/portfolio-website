@@ -6,7 +6,7 @@ export default function Header({ name }) {
     <header className="flex flex-col justify-between h-full">
       <h1 className="text-4xl dark:text-white text-right pr-10">
         <Link href="/">
-          <a>{name}</a>
+          <a className="text-white hover:text-white">{name}</a>
         </Link>
       </h1>
 

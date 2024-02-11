@@ -15,3 +15,23 @@ h6 {
 body {
   font-family: var(--font-secondary);
 }
+
+.skill {
+  padding: 0.50rem 1.25rem;
+  border: 1px solid;
+  border-radius: 2rem;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+}
+
+a {
+  color: rgb(56 189 248);
+  transition-property: color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+a:hover {
+  color: rgb(8 47 73);
+}
+
