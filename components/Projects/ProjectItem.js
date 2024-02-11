@@ -1,6 +1,6 @@
 export default function ProjectItem({ item }) {
   return (
-    <li className="py-4">
+    <li className="py-4 list-item">
       <a
         href={item.link}
         target="_blank"
