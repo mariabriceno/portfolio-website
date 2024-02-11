@@ -1,7 +1,11 @@
 export default function ProjectItem({ item }) {
   return (
     <li className="py-4">
-      <a href={item.link} className="flex justify-between content-center">
+      <a
+        href={item.link}
+        target="_blank"
+        className="flex justify-between content-center"
+      >
         <p className="self-center text-white">{item.title}</p>
 
         <ul className="flex flex-wrap">
