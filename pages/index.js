@@ -25,7 +25,7 @@ export default function Index({ portfolioItems, globalData }) {
 
       <SplitLayout
         side={"left"}
-        classlist={"col-start-1 col-end-5 row-span-12"}
+        classlist={"col-start-1 md:col-end-5 md:row-span-12"}
         open={open}
       >
         <Header name={globalData.name} />
@@ -35,7 +35,9 @@ export default function Index({ portfolioItems, globalData }) {
       </button> */}
       <SplitLayout
         side={"right"}
-        classlist={"col-start-5 col-end-13 row-span-12 overflow-auto"}
+        classlist={
+          "md:col-start-5 md:col-end-13 md:row-span-12 md:overflow-auto"
+        }
         open={open}
       >
         <main className="container">

@@ -10,7 +10,7 @@ export default function ListItem({ item }) {
   const portItems = item.portfolioItems;
 
   return (
-    <li className="py-10 flex flex-row">
+    <li className="py-10 flex md:flex-row flex-col">
       <header className="w-60 shrink-0">
         <p className="text-md">
           {item.head.start} -<br />

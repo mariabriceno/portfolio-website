@@ -9,17 +9,20 @@ export const SplitLayout = ({ side, classlist, children, open }) => {
   const [classes, setClasses] = useState(classlist);
 
   const getHeaderClasses = () => {
-    const staticClasses = "col-start-1 row-span-12";
+    const staticClasses = "md:col-start-1 md:row-span-12 col-span-full";
 
-    const newClasses = `${staticClasses} ${open ? "col-end-5" : "col-end-3"}`;
+    const newClasses = `${staticClasses} ${
+      open ? "md:col-end-5" : "md:col-end-3"
+    }`;
     setClasses(newClasses);
   };
 
   const getBodyClasses = () => {
-    const staticClasses = "col-end-13 row-span-12 overflow-auto";
+    const staticClasses =
+      "md:col-end-13 md:row-span-12 col-span-full overflow-auto";
 
     const newClasses = `${staticClasses} ${
-      open ? "col-start-5" : "col-start-3"
+      open ? "md:col-start-5" : "md:col-start-3"
     }`;
 
     setClasses(newClasses);

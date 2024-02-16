@@ -50,6 +50,8 @@ export default function Layout({ children }) {
   // }, []);
 
   return (
-    <div className="mx-auto grid grid-cols-12 h-screen p-24">{children}</div>
+    <div className="mx-auto grid grid-cols-12 md:h-screen md:p-24">
+      {children}
+    </div>
   );
 }
