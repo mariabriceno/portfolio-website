@@ -6,7 +6,7 @@ export default function ProjectItem({ item }) {
         target="_blank"
         className="flex md:flex-row flex-col justify-between md:content-center"
       >
-        <p className="md:self-center md:mb-0 mb-4 text-white">{item.title}</p>
+        <p className="md:self-center md:mb-0 mb-4">{item.title}</p>
 
         <ul className="flex flex-wrap">
           {item.tech.map((i, idx) => {
