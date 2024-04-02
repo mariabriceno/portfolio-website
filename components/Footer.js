@@ -15,7 +15,7 @@ export default function Footer({ copyrightText }) {
         >
           Figma
         </a>
-        , Built with{" "}
+        , built with{" "}
         <a className="link" target="_blank" href="https://nextjs.org/">
           Next.js
         </a>

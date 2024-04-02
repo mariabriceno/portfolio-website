@@ -32,6 +32,23 @@ main > section.active {
   opacity: 1;
 }
 
+.heading {
+  position: relative;
+  text-shadow:0 4px 4px rgb(0, 0, 0, 0.25);
+  display: inline-block;
+}
+
+.heading::before {
+  content: '';
+  background-color: rgb(56 189 248);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 105%;
+  height: 8px;
+  z-index: -1;
+}
+
 a.link {
   text-decoration: none;
   position: relative;
@@ -82,12 +99,23 @@ a.link:hover::before {
     font-size: 1.55rem;
   }
 
+  .nav-items a::before {
+    content: '';
+    height: 1px;
+    background-color: #fff;
+    width: 0;
+    position: absolute;
+    left: -120%;
+    top: calc(100% / 2);
+    transition: all .3s ease-in-out;
+  }
+
   .active.nav-items a {
     position: relative;
     text-shadow:0 4px 4px rgb(0, 0, 0, 0.25);
   }
 
-  .active.nav-items a::after {
+  /* .active.nav-items a::after {
     content: '';
     background-color: rgb(56 189 248);
     position: absolute;
@@ -97,16 +125,11 @@ a.link:hover::before {
     height: 8px;
     z-index: -1;
     transition: all .3s ease-in-out;
-  }
+  } */
 
   .active.nav-items a::before {
     content: '';
-    height: 1px;
-    background-color: #fff;
     width: 100%;
-    position: absolute;
-    left: -120%;
-    top: calc(100% / 2);
   }
 }
 

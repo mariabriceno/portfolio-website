@@ -11,8 +11,6 @@ export default function Header({ name, navItems, setSection, active }) {
     setOpen((prev) => !prev);
   };
 
-  console.log(active);
-
   return (
     <header className="flex flex-col justify-between h-full">
       <h1 className="text-6xl font-black dark:text-white text-right pr-10 hidden md:block">
@@ -22,7 +20,7 @@ export default function Header({ name, navItems, setSection, active }) {
             <br />
             Laura
             <br />
-            Briceno
+            Briceño
           </a>
         </Link>
       </h1>
@@ -47,7 +45,7 @@ export default function Header({ name, navItems, setSection, active }) {
                 return (
                   <li
                     className={classNames(
-                      item.text === active ? "active" : "",
+                      item.text.toLowerCase() === active ? "active" : "",
                       "nav-items"
                     )}
                     key={idx}

@@ -17,15 +17,15 @@ import { useInView, InView } from "react-intersection-observer";
 export default function Index({ portfolioItems, globalData }) {
   const sections = [
     {
-      title: "About",
+      title: "about",
       children: <About />,
     },
     {
-      title: "Experience",
+      title: "experience",
       children: <Experience jobs={portfolioItems} />,
     },
     {
-      title: "Projects",
+      title: "projects",
       children: <Projects projects={projects} />,
     },
   ];
