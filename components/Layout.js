@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useEffect } from "react";
-// import styles from "./Layout.module.css";
+import styles from "./Layout.module.css";
 
 // export function GradientBackground({ variant, className }) {
 //   const classes = classNames(
@@ -49,9 +49,14 @@ export default function Layout({ children }) {
   //   handleSystemThemeChange();
   // }, []);
 
-  return (
-    <div className="mx-auto grid grid-cols-12 md:h-screen md:p-24">
-      {children}
-    </div>
+  const classes = classNames(
+    styles.maxWidth,
+    "mx-auto",
+    "md:grid",
+    "grid-cols-12",
+    "md:h-screen",
+    "md:py-24"
   );
+
+  return <div className={classes}>{children}</div>;
 }

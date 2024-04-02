@@ -1,6 +1,6 @@
-export default function About() {
+export default function About({ id, active }) {
   return (
-    <section id="about" className="mb-24">
+    <>
       <p className="mb-4">
         Hi! I'm a front end engineer with six years of experience. I've worked
         on web development, web design and with almost any CMS you can think of.
@@ -19,12 +19,16 @@ export default function About() {
       </p>
       <p className="mb-4">
         In my free time, I love watching movies and logging them on Letterboxd
-        <a href="https://letterboxd.com/bricenope/" target="_blank">
+        <a
+          className="link"
+          href="https://letterboxd.com/bricenope/"
+          target="_blank"
+        >
           {" "}
           (follow me!)
         </a>
         , running, and traveling.
       </p>
-    </section>
+    </>
   );
 }

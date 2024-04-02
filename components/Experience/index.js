@@ -1,8 +1,8 @@
 import ListItem from "./ListItem";
 
-export default function Experience({ jobs }) {
+export default function Experience({ id, jobs, active }) {
   return (
-    <section className="mb-24" id="experience">
+    <>
       <h2 className="text-3xl">Experience</h2>
       <ul>
         {jobs &&
@@ -10,6 +10,6 @@ export default function Experience({ jobs }) {
             return <ListItem key={idx} item={item} />;
           })}
       </ul>
-    </section>
+    </>
   );
 }

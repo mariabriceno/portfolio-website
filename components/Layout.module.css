@@ -44,3 +44,11 @@
   filter: blur(44px);
   z-index: -1;
 }
+
+@media (min-width: 1200px) {
+  .maxWidth {
+    max-width: 1220px;
+  }
+}
+
+

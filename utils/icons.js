@@ -113,3 +113,7 @@ export default function ArrowIcon({ className, color = "text-primary" }) {
     </svg>
   );
 }
+
+export function Divider() {
+  return <hr className="squiggle-divider" />;
+}
