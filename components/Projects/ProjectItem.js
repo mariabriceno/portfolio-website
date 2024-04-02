@@ -11,7 +11,10 @@ export default function ProjectItem({ item }) {
         <ul className="flex flex-wrap">
           {item.tech.map((i, idx) => {
             return (
-              <li key={idx} className="skill mr-2 md:mb-0 mb-4">
+              <li
+                key={idx}
+                className="skill mr-2 md:mb-0 mb-4 uppercase text-md tracking-wider"
+              >
                 {i}
               </li>
             );

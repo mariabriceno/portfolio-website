@@ -1,6 +1,6 @@
 import ProjectItem from "./ProjectItem";
 
-export default function Project({ id, projects, active }) {
+export default function Project({ projects }) {
   return (
     <>
       <h2 className="text-3xl mb-4 font-extrabold heading">Projects</h2>
