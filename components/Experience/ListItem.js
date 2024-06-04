@@ -20,6 +20,7 @@ export default function ListItem({ item }) {
         <a
           className="text-base block mb-4 uppercase tracking-wider"
           href={item.head.link}
+          target="_blank"
         >
           {item.head.company}
         </a>
